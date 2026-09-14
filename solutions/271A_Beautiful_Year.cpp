@@ -4,17 +4,19 @@ using namespace std;
 int main() {
     int y;
     cin >> y;
- 
-    do {
+    bool found = false;
+    while(!found){
         y++;
+        found = true;
         string s = to_string(y);
-        set<char> digits(s.begin(), s.end());
- 
-        if (digits.size() == s.size()) {
-            cout << y;
-            break;
+        for(int i=0;i<3;i++){
+            for(int j=i+1;j<4;j++){
+                if(s[i] == s[j]){
+                    found = false;             
+                }
+            }
         }
-    } while (true);
- 
+    }
+    cout << y;
     return 0;
 }
